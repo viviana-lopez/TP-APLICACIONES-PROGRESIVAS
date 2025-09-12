@@ -3,12 +3,14 @@
 //el "import" permite traer funciones de tipo "export" desde otros archivos js
 
 import { getProducts } from "../api.js";
+import { Modal } from "./modal.js";
+
 
 export function RenderCards (){
     //realizo el uso del DOM para poder ubicar donde se van a generar las cards
     let productList = document.querySelector('#product-list');
     console.log(productList);
-    
+     
     //utilizo la funcion getProducts para hacer el llamado de la api
     //finalizo la promesa del fetch con un then para que me muestre todo el array de productos traidos de la API
     //con el let template dentro del forEach genero de manera dinamica los cards de productos utilizando los datos traidos de la api
