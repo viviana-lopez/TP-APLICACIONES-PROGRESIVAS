@@ -30,7 +30,7 @@ export function Modal(prod){
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-dark" id="addToCartBtn">Agregar al carrito</button>
+                    <button type="button" class="btn btn-dark" id="addToCartBtn-${prod.id}">Agregar al carrito</button>
                 </div>
             </div>
         </div>
@@ -39,7 +39,17 @@ export function Modal(prod){
     //le cargo a traves del DOM con el innerHTML el contenido de template
     container.innerHTML = template;
 
+    //llamo (capturo) al boton de agregar al carrito del modal de mostrar producto por su id a traves del document.querySelector
+    let btnAddToCart =document.querySelector(`#addToCartBtn-${prod.id}`);
+
+    //le agrego el veneto click al boton de agregar al carrito
+    btnAddToCart.addEventListener('click', () => {
+        console.log(`Producto ${prod.id} agregado al carrito`);
+    });
+
+    //para crear el nuevo modal dentro del container
     const bootstrapModal = new bootstrap.Modal(container);
+
     //se utiliza el metodo show para mostrar el modal
     bootstrapModal.show();
 }

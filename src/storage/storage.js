@@ -12,13 +12,20 @@ export function initLocalStorage() {
     }
 }
 
+//obtener los datos del localStorage
 
+export function getFromLocalStorage() {
+    //se parsean los datos para guardarlos en su tipo de datos originales para poder acceder a los atributos de los elementos del array
+    return JSON.parse(localStorage.getItem(STORAGE_KEY));
+}
+
+//guardar los datos del localStorage
 export function saveToLocalStorage(item) {
+    //solicitamos la informacion del localStorage
     let cart = getFromLocalStorage();
+    //le agregamos a esa informacion el nuevo item seleccionado el cual se guardará al final del array
     cart.push(item);
+    //convertimos nuevamente la información en un string de caracteres para que pueda ser guardado nuevamente en el localStorage
     localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
 }
 
-export function getFromLocalStorage() {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY));
-}
