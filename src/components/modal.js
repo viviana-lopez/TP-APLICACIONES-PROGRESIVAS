@@ -20,8 +20,11 @@ export function Modal(prod){
                         <div class="col-md-6">
                             <p>${prod.description}</p>
                         </div>  
-                        <div>
-                            <small>USD${prod.price}</small>
+                        <div class="col-12 d-flex justify-content-end align-items-start">
+                            <p style="width: 150px;">
+                               Precio: <small> USD ${prod.price}</small>
+                            </p>    
+                        
                         </div>  
                     </div>   
                 </div>
