@@ -1,0 +1,9 @@
+/* <weight>: Use a value from 400 to 800
+// <uniquifier>: Use a unique and descriptive class name */
+/*para poder terminar de aplicar el estilo hay que descomentar la coneccion al css en el head del index html */
+* {
+  font-family: "Sen", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}

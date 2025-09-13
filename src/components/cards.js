@@ -45,7 +45,7 @@ export function RenderCards (){
         products.forEach((p) =>{
             let btn = document.querySelector(`#btn-${p.id}`);
             btn.addEventListener('click', () => {
-                Modal();
+                Modal(p);
             });
         });
     });
