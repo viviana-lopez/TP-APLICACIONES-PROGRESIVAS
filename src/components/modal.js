@@ -6,7 +6,7 @@ export function Modal(prod){
     let container = document.querySelector('#productModal');
 
     let template = `
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">${prod.title}</h1>
@@ -17,12 +17,12 @@ export function Modal(prod){
                         <div class="col-md-6">
                             <img src="${prod.image}" class="img-fluid" alt="${prod.title}">
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 d-flex justify-content-center align-items-center">
                             <p>${prod.description}</p>
                         </div>  
                         <div class="col-12 d-flex justify-content-end align-items-start">
                             <p style="width: 150px;">
-                               Precio: <small> USD ${prod.price}</small>
+                               Precio: <small class="text-dark fs-6 fw-bold"> USD ${prod.price}</small>
                             </p>    
                         
                         </div>  
@@ -30,7 +30,7 @@ export function Modal(prod){
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Agregar al carrito</button>
+                    <button type="button" class="btn btn-dark" id="addToCartBtn">Agregar al carrito</button>
                 </div>
             </div>
         </div>

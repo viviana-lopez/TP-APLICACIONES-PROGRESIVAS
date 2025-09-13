@@ -3,6 +3,8 @@
 //el "import" permite traer funciones de tipo "export" desde otros archivos js
 
 import { RenderCards } from "./components/cards.js";
+//import {initLocalStorage} from './storage/storege.js';
 
+//initLocalStorage();
 RenderCards();
 

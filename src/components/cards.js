@@ -2,7 +2,7 @@
 
 //el "import" permite traer funciones de tipo "export" desde otros archivos js
 
-import { getProducts } from "../api.js";
+import { getProducts } from "../services/api.js";
 import { Modal } from "./modal.js";
 
 
