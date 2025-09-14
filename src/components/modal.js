@@ -42,8 +42,11 @@ export function Modal(prod){
     //le cargo a traves del DOM con el innerHTML el contenido de template
     container.innerHTML = template;
 
+    //para crear el nuevo modal dentro del container
+    const bootstrapModal = new bootstrap.Modal(container);
+
     //llamo a la funcion addEventListeners  que está en contador.js para capturar el id del producto y poder reutilizarlo en el modal de descripcion del producto y que se aplique a los botones para marcar la cantidad del producto seleccionado dentro del modal
-    addEventListeners(prod.id);
+    addEventListeners(prod.id, 1);
 
     //llamo (capturo) al boton de agregar al carrito del modal de mostrar producto por su id a traves del document.querySelector
     let btnAddToCart = document.querySelector(`#addToCartBtn-${prod.id}`);
@@ -57,8 +60,7 @@ export function Modal(prod){
         saveToLocalStorage(prod);
     });
 
-    //para crear el nuevo modal dentro del container
-    const bootstrapModal = new bootstrap.Modal(container);
+    
 
     //se utiliza el metodo show para mostrar el modal
     bootstrapModal.show();

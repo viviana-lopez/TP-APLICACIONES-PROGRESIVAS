@@ -12,18 +12,24 @@ export function contador(id) {
 }
 
 //funcion para acceder a los id de cada elemento del contador del boton para modificar la cantidad del producto
-export function addEventListeners(id) {
+export function addEventListeners(id, cantidad) {
     let btnIncrement = document.querySelector(`#incrementBtn-${id}`);
     let btnDecrement = document.querySelector(`#decrementBtn-${id}`);
-    //let spanContador = document.querySelector(`#contador-${id}`);
-
+    let spanContador = document.querySelector(`#contador-${id}`);
+    
     //agrego los eventos on click a los botones
     btnIncrement.addEventListener('click', () => {
         console.log('click aumentar');
+        spanContador.textContent = ++cantidad;
     });
 
     btnDecrement.addEventListener('click', () => {
         console.log('clic disminuir');
+        //para disminuir hay que poner una validacion para que nunca sea menor a 1
+        if(cantidad > 1) {
+            spanContador.textContent = --cantidad;
+        }
+        spanContador.textContent = cantidad;
     });
 
 }
