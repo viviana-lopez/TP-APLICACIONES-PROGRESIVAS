@@ -1,3 +1,5 @@
+import { saveToLocalStorage } from "../storage/storage.js";
+import { addEventListeners, contador } from "./contador.js";
 
 
 export function Modal(prod){
@@ -18,14 +20,14 @@ export function Modal(prod){
                             <img src="${prod.image}" class="img-fluid" alt="${prod.title}">
                         </div>
                         <div class="col-md-6 d-flex justify-content-center align-items-center">
-                            <p>${prod.description}</p>
-                        </div>  
-                        <div class="col-12 d-flex justify-content-end align-items-start">
-                            <p style="width: 150px;">
-                               Precio: <small class="text-dark fs-6 fw-bold"> USD ${prod.price}</small>
-                            </p>    
-                        
-                        </div>  
+                            <div class="d-flex flex-column gap-3">
+                                <p>${prod.description}</p>
+                                <p style="width: 150px;">
+                                    Precio: <small class="text-dark fs-6 fw-bold"> USD ${prod.price}</small>
+                                </p>  
+                                ${contador(prod.id)}<!-- el contador viene desde la funcion contador que está en contador.js -->
+                            </div>   
+                        </div>   
                     </div>   
                 </div>
                 <div class="modal-footer">
@@ -36,15 +38,23 @@ export function Modal(prod){
         </div>
     `;
 
+
     //le cargo a traves del DOM con el innerHTML el contenido de template
     container.innerHTML = template;
 
+    //llamo a la funcion addEventListeners  que está en contador.js para capturar el id del producto y poder reutilizarlo en el modal de descripcion del producto y que se aplique a los botones para marcar la cantidad del producto seleccionado dentro del modal
+    addEventListeners(prod.id);
+
     //llamo (capturo) al boton de agregar al carrito del modal de mostrar producto por su id a traves del document.querySelector
-    let btnAddToCart =document.querySelector(`#addToCartBtn-${prod.id}`);
+    let btnAddToCart = document.querySelector(`#addToCartBtn-${prod.id}`);
 
     //le agrego el veneto click al boton de agregar al carrito
     btnAddToCart.addEventListener('click', () => {
+        //mensaje para verificar por pantalla que este tomando los datos del boton al disparar el evento click
         console.log(`Producto ${prod.id} agregado al carrito`);
+        prod.qtty = 1;
+        //llamo a la funcion para guardar en el local storage
+        saveToLocalStorage(prod);
     });
 
     //para crear el nuevo modal dentro del container
