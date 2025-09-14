@@ -19,12 +19,12 @@ export function addEventListeners(id, cantidad) {
     
     //agrego los eventos on click a los botones
     btnIncrement.addEventListener('click', () => {
-        console.log('click aumentar');
+        console.log('click aumentar'); //===== TO=>>>>DO
         spanContador.textContent = ++cantidad;
     });
 
     btnDecrement.addEventListener('click', () => {
-        console.log('clic disminuir');
+        console.log('clic disminuir'); //===== TO=>>>>DO
         //para disminuir hay que poner una validacion para que nunca sea menor a 1
         if(cantidad > 1) {
             spanContador.textContent = --cantidad;

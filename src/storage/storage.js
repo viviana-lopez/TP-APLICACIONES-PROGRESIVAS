@@ -29,3 +29,7 @@ export function saveToLocalStorage(item) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
 }
 
+//funcion para agregar/actualizar nuevos productos en el carrito
+export function setItemToLocalStorage(items) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+}
